@@ -1,0 +1,68 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://120.25.156.132:18929/epm_test?useUnicode=true&characterEncoding=UTF-8&useSSL=true&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://120.25.156.132:18929/epm_test?useUnicode=true&characterEncoding=UTF-8&useSSL=true&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+
+    username: root
+    password: 2168230078
+    druid:
+      initial-size: 5
+      max-active: 30
+      min-idle: 5
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 50
+      filters: stat
+      use-global-data-source-stat: true
+      # 记录慢SQL
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  redis:
+#    host: localhost
+#    port: 6379
+#    host: 192.168.153.128
+#    port: 6379
+    host: 120.25.156.132
+    port: 30332
+    password: 2168230078
+    timeout: 10000ms # 需要带单位
+    # Redis默认情况下有16个分片，这里配置具体使用的分片
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8 # 最大连接数, 负数表示没有限制
+        max-wait: -1ms # 最大阻塞时间, 带单位, 负数没有限制
+        max-idle: 8
+        min-idle: 0
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 1024MB
+  main:
+    lazy-initialization: true
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+
+pagehelper:
+  auto-dialect: true
+  reasonable: true
+  support-methods-arguments: true
+  # 默认名字映射pageNum
+#  params: count=countSql
+
+knife4j:
+  enable: true
+

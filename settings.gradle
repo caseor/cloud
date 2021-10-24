@@ -1,0 +1,17 @@
+rootProject.name = 'cloud'
+include 'cloud-common'
+include 'cloud-web'
+include 'cloud-common:common-core'
+include 'cloud-common:common-ds'
+include 'cloud-common:common-redis'
+include 'cloud-auth'
+include 'cloud-account'
+include 'cloud-gateway'
+include 'cloud-oauth2'
+include 'cloud-order'
+include 'cloud-product'
+include 'cloud-seata'
+include 'cloud-account:account-api'
+include 'cloud-account:account-service'
+
+

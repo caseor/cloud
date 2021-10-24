@@ -1,0 +1,18 @@
+plugins {
+}
+
+jar.enabled = true
+bootJar.enabled = true
+
+dependencies {
+    implementation project(':cloud-common:common-core')
+}
+
+configurations {
+}
+
+test {
+}
+
+repositories {
+}

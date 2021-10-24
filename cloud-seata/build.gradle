@@ -1,0 +1,17 @@
+plugins {
+}
+
+jar.enabled = false
+bootJar.enabled = false
+
+dependencies {
+}
+
+configurations {
+}
+
+test {
+}
+
+repositories {
+}
