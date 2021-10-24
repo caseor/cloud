@@ -8,9 +8,18 @@ group 'org.casey'
 version '1.0.0'
 
 dependencies {
+    implementation project(':cloud-common:common-core')
+    implementation project(':cloud-account:account-api')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:2.1.2.RELEASE'
+    implementation 'io.github.openfeign:feign-okhttp:11.5'
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 configurations {
+    testImplementation.exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 }
 
 test {

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: cloud-account-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: cloud-dev
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: cloud-dev
